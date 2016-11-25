@@ -27,6 +27,12 @@ sudo cp log4j2.xml /usr/local/pcprox-javad
 sudo ./pcprox-javad.sh start
 ```
 
+### Running the daemon in a console
+
+```bash
+sudo ./gradlew run
+```
+
 ### Side notes
 
 * You have to use `LD_PRELOAD` when running the app. I believe this to be due to a linker issue during compliation of the pcProxAPI
