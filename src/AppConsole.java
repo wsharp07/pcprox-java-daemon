@@ -1,7 +1,5 @@
 import com.mongodb.BasicDBObjectBuilder;
-import com.mongodb.DB;
 import com.mongodb.DBObject;
-import com.mongodb.MongoClient;
 import org.apache.commons.daemon.DaemonContext;
 import org.apache.commons.daemon.DaemonController;
 
@@ -12,20 +10,7 @@ import java.util.Date;
 public class AppConsole {
     private static App _app;
     public static void main(String[] args) {
-
-
-        try {
-            MongoService mongoService = new MongoService("pcprox");
-            System.out.println("Connected? " + mongoService.IsConnected());
-            CardData data = new CardData(new Date(), "2950129512");
-
-            mongoService.setCollection("card_reads");
-            mongoService.Insert(createDBObject(data));
-        } catch (UnknownHostException e) {
-            e.printStackTrace();
-        }
-
-        /*Runtime.getRuntime().addShutdownHook( new Thread() {
+        Runtime.getRuntime().addShutdownHook( new Thread() {
             @Override
             public void run() {
                 System.out.println("Application shutdown");
@@ -44,14 +29,7 @@ public class AppConsole {
             _app.start();
         } catch (Exception e) {
             e.printStackTrace();
-        } */
-    }
-
-    private static DBObject createDBObject(CardData data) {
-        BasicDBObjectBuilder docBuilder = BasicDBObjectBuilder.start();
-        docBuilder.append("cardSwipeDate", data.getCardSwipeDate());
-        docBuilder.append("cardId", data.getCardId());
-        return docBuilder.get();
+        }
     }
 }
 

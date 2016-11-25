@@ -1,3 +1,6 @@
+import com.mongodb.BasicDBObjectBuilder;
+import com.mongodb.DBObject;
+
 import java.util.Date;
 
 public class CardData {
@@ -28,5 +31,12 @@ public class CardData {
 
     public void setCardId(String cardId) {
         this.cardId = cardId;
+    }
+
+    public static DBObject createDBObject(CardData data) {
+        BasicDBObjectBuilder docBuilder = BasicDBObjectBuilder.start();
+        docBuilder.append("cardSwipeDate", data.getCardSwipeDate());
+        docBuilder.append("cardId", data.getCardId());
+        return docBuilder.get();
     }
 }
