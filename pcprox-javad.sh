@@ -23,10 +23,12 @@ FILE_PATH="/usr/local/$NAME"
 JAVA_HOME="/usr/lib/jvm/java-8-oracle"
 
 # Our classpath including our jar file and the Apache Commons Daemon library
-CLASS_PATH="$FILE_PATH/pcprox-javad.jar:$FILE_PATH/lib/commons-daemon-1.0.15.jar"
+CLASS_PATH="$FILE_PATH/pcprox-javad.jar:$FILE_PATH/lib/*:$FILE_PATH/log4j2.xml"
 
 # The fully qualified name of the class to execute
 CLASS="App"
+
+JVM_ARGS="-Djava.library.path=./lib -Djna.library.path=./lib -Dlog4j.configurationFile=./log4j2.xml"
 
 # Any command line arguments to be passed to the our Java Daemon implementations init() method
 ARGS=""
@@ -46,7 +48,7 @@ LOG_ERR="$FILE_PATH/err/$NAME.err"
 jsvc_exec()
 {
     cd $FILE_PATH
-    $EXEC -home $JAVA_HOME -cp $CLASS_PATH -user $USER -outfile $LOG_OUT -errfile $LOG_ERR -pidfile $PID $1 $CLASS $ARGS
+    LD_PRELOAD=./lib/libhidapi-hidraw.so $EXEC -home $JAVA_HOME $JVM_ARGS -cp $CLASS_PATH -user $USER -outfile $LOG_OUT -errfile $LOG_ERR -pidfile $PID $1 $CLASS $ARGS
 }
 
 case "$1" in

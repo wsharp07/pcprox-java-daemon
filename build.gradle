@@ -35,3 +35,11 @@ dependencies {
 
 // If you don't use LD_PRELOAD you will get hid errors thrown from pcProxAPI
 run.doFirst { environment 'LD_PRELOAD', './lib/libhidapi-hidraw.so' }
+
+task copyToLib(type: Copy) {
+    into "$buildDir/output/libs"
+    from configurations.runtime
+}
+
+build.dependsOn(copyToLib)
+
