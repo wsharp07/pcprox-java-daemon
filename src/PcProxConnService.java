@@ -4,7 +4,6 @@ import org.apache.logging.log4j.Logger;
 public class PcProxConnService implements Runnable {
     private static final Logger logger = LogManager.getLogger();
     public boolean isConnected = false;
-    public volatile boolean isRunning = true;
     private PcProxAPI _api;
 
     public PcProxConnService(PcProxAPI api) {
@@ -14,7 +13,7 @@ public class PcProxConnService implements Runnable {
     @Override
     public void run() {
         logger.debug("Starting connection thread");
-        while(isRunning) {
+        while(!Thread.currentThread().isInterrupted()) {
             try {
                 if (isConnected) break;
 
@@ -30,7 +29,7 @@ public class PcProxConnService implements Runnable {
                 Thread.currentThread().sleep(250);
 
             } catch (InterruptedException ex) {
-                isRunning = false;
+                Thread.currentThread().interrupt();
             }
         }
     }
