@@ -5,7 +5,7 @@ public class CardData {
     private int cardId;
 
     /**
-     * Create an AttendeeData object
+     * Create an CardData object
      * @param cardSwipeDate date/time of card swipe
      * @param cardId ID read from RFID card
      */
