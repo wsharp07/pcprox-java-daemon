@@ -17,9 +17,10 @@ public class AppConsole {
         try {
             MongoService mongoService = new MongoService("pcprox");
             System.out.println("Connected? " + mongoService.IsConnected());
+            CardData data = new CardData(new Date(), "2950129512");
 
             mongoService.setCollection("card_reads");
-            mongoService.Insert(createDBObject(new Date(), "4D0029418248"));
+            mongoService.Insert(createDBObject(data));
         } catch (UnknownHostException e) {
             e.printStackTrace();
         }
@@ -46,10 +47,10 @@ public class AppConsole {
         } */
     }
 
-    private static DBObject createDBObject(Date cardSwipeDate, String cardId) {
+    private static DBObject createDBObject(CardData data) {
         BasicDBObjectBuilder docBuilder = BasicDBObjectBuilder.start();
-        docBuilder.append("cardSwipeDate", cardSwipeDate);
-        docBuilder.append("cardId", cardId);
+        docBuilder.append("cardSwipeDate", data.getCardSwipeDate());
+        docBuilder.append("cardId", data.getCardId());
         return docBuilder.get();
     }
 }

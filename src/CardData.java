@@ -2,14 +2,14 @@ import java.util.Date;
 
 public class CardData {
     private Date cardSwipeDate;
-    private int cardId;
+    private String cardId;
 
     /**
      * Create an CardData object
      * @param cardSwipeDate date/time of card swipe
      * @param cardId ID read from RFID card
      */
-    public CardData(Date cardSwipeDate, int cardId) {
+    public CardData(Date cardSwipeDate, String cardId) {
         this.cardSwipeDate = cardSwipeDate;
         this.cardId = cardId;
     }
@@ -22,11 +22,11 @@ public class CardData {
         this.cardSwipeDate = cardSwipeDate;
     }
 
-    public int getCardId() {
+    public String getCardId() {
         return cardId;
     }
 
-    public void setCardId(int cardId) {
+    public void setCardId(String cardId) {
         this.cardId = cardId;
     }
 }
