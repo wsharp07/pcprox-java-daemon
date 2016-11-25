@@ -4,6 +4,9 @@
         <File name="f" fileName="pcprox-java-daemon.log" immediateFlush="true" append="true">
             <PatternLayout pattern="%d{yyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
         </File>
+        <File name="cardId" fileName="pcprox-cards-read.log" immediateFlush="true" append="true">
+            <PatternLayout pattern="%d{yyy-MM-dd HH:mm:ss.SSS} %msg%n"/>
+        </File>
         <Console name="c" target="SYSTEM_OUT">
             <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
         </Console>
@@ -13,5 +16,8 @@
             <AppenderRef ref="f"/>
             <AppenderRef ref="c" />
         </Root>
+        <Logger name="cardId" additivity="TRUE" level="ALL">
+            <AppenderRef ref="cardId" />
+        </Logger>
     </Loggers>
 </Configuration>

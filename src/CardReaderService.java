@@ -3,6 +3,7 @@ import org.apache.logging.log4j.Logger;
 
 public class CardReaderService implements Runnable {
     private static final Logger logger = LogManager.getLogger();
+    private static final Logger cardLogger = LogManager.getLogger("cardId");
     private PcProxAPI _api;
 
     public CardReaderService(PcProxAPI api) {
@@ -17,7 +18,7 @@ public class CardReaderService implements Runnable {
             String cardId = _api.getCardId();
 
             if (cardId.isEmpty() == false) {
-                logger.info("Card Read: " + cardId);
+                cardLogger.info("Card Read: " + cardId);
 
                 if (_api.getLastError() > 0) {
                     logger.warn("Lost reader connection");
