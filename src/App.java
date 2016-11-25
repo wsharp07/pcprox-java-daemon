@@ -57,9 +57,7 @@ public class App implements Daemon {
     @Override
     public void stop() throws Exception {
         logger.info("Service shutting down");
-
-        _pcProxConnService.isRunning = false;
-
+        
         executor.shutdownNow();
     }
 
