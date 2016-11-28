@@ -6,6 +6,7 @@ A Java daemon application for interacting with pcProx card readers and recording
 ### Prerequisites
 
 1. See the README file in the `lib` folder for the files you will need to copy there from the pcProx SDK. More information on the SDK can be found here: https://www.rfideas.com/products/sdk/universal-enroll-sdk
+2. Requires MongoDB to record card data information. https://www.howtoforge.com/tutorial/install-mongodb-on-ubuntu-16.04/
 
 ### Building the app
 
