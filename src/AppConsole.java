@@ -1,11 +1,5 @@
-import com.mongodb.BasicDBObjectBuilder;
-import com.mongodb.DBObject;
 import org.apache.commons.daemon.DaemonContext;
 import org.apache.commons.daemon.DaemonController;
-
-import java.net.UnknownHostException;
-import java.time.LocalDateTime;
-import java.util.Date;
 
 public class AppConsole {
     private static App _app;

@@ -23,4 +23,34 @@ public final class PcProxSO {
     public static int getDeviceCount(){
         return IPcProxSO.INSTANCE._Z16pcprox_GetDevCntv();
     }
+    public static int getActiveID(int bufferMaxSize) {
+        return  IPcProxSO.INSTANCE._Z18pcprox_getActiveIDs(bufferMaxSize);
+    }
+    public static int getActiveIDByte(int index) {
+        return IPcProxSO.INSTANCE._Z16getActiveID_bytes(index);
+    }
+    public static int getActiveCardData() {
+        return IPcProxSO.INSTANCE._Z17getActiveCardDatav();
+    }
+    public static int getActiveCardDataByte(int index) {
+        return IPcProxSO.INSTANCE._Z22getActiveCardData_bytes(index);
+    }
+    public static int setAppCtrlsLED(int value) {
+        return IPcProxSO.INSTANCE._Z23setLEDCtrl_bAppCtrlsLEDs(value);
+    }
+    public static int setGrnLEDState(int value) {
+        return IPcProxSO.INSTANCE._Z23setLEDCtrl_iGrnLEDStates(value);
+    }
+    public static int setRedLEDState(int value) {
+        return IPcProxSO.INSTANCE._Z23setLEDCtrl_iRedLEDStates(value);
+    }
+    public  static int setLEDCtrlVolatile(int value) {
+        return IPcProxSO.INSTANCE._Z20setLEDCtrl_bVolatiles(value);
+    }
+    public static int getGrnLEDState() {
+        return IPcProxSO.INSTANCE._Z23getLEDCtrl_iGrnLEDStatev();
+    }
+    public static int getRedLEDState() {
+        return IPcProxSO.INSTANCE._Z23getLEDCtrl_iRedLEDStatev();
+    }
 }
