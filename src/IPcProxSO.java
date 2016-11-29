@@ -11,4 +11,14 @@ public interface IPcProxSO extends Library {
     int _Z21pcprox_SetDevTypeSrchs(int devSearchType);
     int _Z14pcprox_BeepNowhi(int count, int beepType);
     int _Z16pcprox_GetDevCntv();
+    int _Z18pcprox_getActiveIDs(int bufferMaxSize);
+    int _Z16getActiveID_bytes(int index);
+    int _Z17getActiveCardDatav();
+    int _Z22getActiveCardData_bytes(int index);
+    int _Z23setLEDCtrl_bAppCtrlsLEDs(int value);
+    int _Z23setLEDCtrl_iGrnLEDStates(int value);
+    int _Z23setLEDCtrl_iRedLEDStates(int value);
+    int _Z20setLEDCtrl_bVolatiles(int value);
+    int _Z23getLEDCtrl_iGrnLEDStatev();
+    int _Z23getLEDCtrl_iRedLEDStatev();
 }
