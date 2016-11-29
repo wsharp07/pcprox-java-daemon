@@ -9,6 +9,22 @@ public class PcProxAPI {
         AMBER
     }
 
+    public enum BEEP_TYPE {
+        SHORT(0),
+        LONG(1);
+
+        private int value ;
+
+        BEEP_TYPE ( int value )
+        {
+            this.value = value ;
+        }
+
+        public int getValue() {
+            return value;
+        }
+    }
+
     public boolean connect(){
         if (isConnected) return true;
 
@@ -107,8 +123,8 @@ public class PcProxAPI {
         return PcProxSO.getLastLibErr();
     }
 
-    public void beepNow(int count, int beepType) {
-        PcProxSO.beepNow(count,beepType);
+    public void beepNow(int count, BEEP_TYPE beepType) {
+        PcProxSO.beepNow(count,beepType.getValue());
     }
 
     public String getCardId() {

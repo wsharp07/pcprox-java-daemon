@@ -21,7 +21,7 @@ public class PcProxConnService implements Runnable {
 
                 if(_api.connect()) {
                     logger.info("Ready to accept card reads.");
-                    _api.beepNow(2,0);
+                    _api.beepNow(2, PcProxAPI.BEEP_TYPE.SHORT);
                     isConnected = true;
                     break;
                 }
